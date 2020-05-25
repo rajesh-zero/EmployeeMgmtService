@@ -41,6 +41,16 @@ namespace EmployeeMgmtService.Controllers
             return attendanceDetails;
         }
 
+
+        // GET: api/AttendanceDetails/emp/5
+        [HttpGet("emp/{id}")]
+        public async Task<ActionResult<IEnumerable<AttendanceDetails>>> GetOneEmployeeAttendanceDetails(int id)
+        {
+            var attendence = _context.AttendanceDetails.AsQueryable();
+            attendence = _context.AttendanceDetails.Where(i => i.EmployeeId == id);
+            return await attendence.ToListAsync();
+        }
+
         // PUT: api/AttendanceDetails/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
