@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeMgmtService.Models
 {
@@ -11,6 +12,8 @@ namespace EmployeeMgmtService.Models
         }
 
         public int DepartmentId { get; set; }
+        
+        [Required]
         public string DepartmentName { get; set; }
 
         public virtual ICollection<EmployeeInfo> EmployeeInfo { get; set; }
